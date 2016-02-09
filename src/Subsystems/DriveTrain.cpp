@@ -42,8 +42,5 @@ void DriveTrain::InitDefaultCommand() {
 // here. Call these from Commands.
 void DriveTrain::TankDrive(float left,float right)
 {
-	leftDrive1->Set(left);
-	leftDrive2->Set(left);
-	rightDrive1->Set(right);
-	rightDrive2->Set(right);
+	robotDrive41->TankDrive(left, right);
 }

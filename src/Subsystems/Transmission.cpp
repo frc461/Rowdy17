@@ -39,6 +39,6 @@ void Transmission::InitDefaultCommand() {
 void Transmission::ChangeGears(bool firstGear){
 	if(firstGear == true)
 		shifter->Set(DoubleSolenoid::Value::kForward);
-	if(firstGear == false)
+	else
 		shifter->Set(DoubleSolenoid::Value::kReverse);
 }
