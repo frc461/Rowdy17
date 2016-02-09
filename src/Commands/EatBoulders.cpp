@@ -34,13 +34,13 @@ void EatBoulders::Execute() {
 	std::shared_ptr<Joystick> xbox = Robot::oi->getXbox();
 
 	if(xbox->GetRawButton(XboxJoystickButton::XboxButtonA)){
-		Robot::intakeAndManipulator->Suck(1);
+		Robot::intakeAndManipulator->Suck(IntakeAndManipulator::IntakeAndManipulatorDirectionIn);
 	}
 	else if(xbox->GetRawButton(XboxJoystickButton::XboxButtonB)){
-		Robot::intakeAndManipulator->Suck(-1);
+		Robot::intakeAndManipulator->Suck(IntakeAndManipulator::IntakeAndManipulatorDirectionOut);
 	}
 	else{
-		Robot::intakeAndManipulator->Suck(0);
+		Robot::intakeAndManipulator->Suck(IntakeAndManipulator::IntakeAndManipulatorDirectionStop);
 	}
 
 }

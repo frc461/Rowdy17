@@ -32,11 +32,11 @@ void ShiftGears::Initialize() {
 // Called repeatedly when this Command is scheduled to run
 void ShiftGears::Execute() {
 	std::shared_ptr<Joystick> RightDriveJoystick = Robot::oi->getRightDriveJoystick();
-		bool firstGear = RightDriveJoystick->GetRawButton(2);
-		if(firstGear)
-			Robot::transmission->ChangeGears(firstGear);
-		else
-			Robot::transmission->ChangeGears(!firstGear);
+	bool firstGear = RightDriveJoystick->GetRawButton(2);
+	if(firstGear)
+		Robot::transmission->ChangeGears(firstGear);
+	else
+		Robot::transmission->ChangeGears(!firstGear);
 }
 
 // Make this return true when this Command no longer needs to run execute()
