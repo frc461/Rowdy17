@@ -32,9 +32,9 @@ OI::OI() {
     intakeUpButton.reset(new JoystickButton(xboxController.get(), 5));
     rightJoystick.reset(new Joystick(1));
     
-    secondGearButton.reset(new JoystickButton(rightJoystick.get(), 2));
+    secondGearButton.reset(new JoystickButton(leftJoystick.get(), 3));
     secondGearButton->WhenPressed(new SwitchGears(false));
-    firstGearButton.reset(new JoystickButton(rightJoystick.get(), 1));
+    firstGearButton.reset(new JoystickButton(leftJoystick.get(), 2));
     firstGearButton->WhenPressed(new SwitchGears(true));
     leftJoystick.reset(new Joystick(0));
     
