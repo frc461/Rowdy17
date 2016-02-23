@@ -46,11 +46,11 @@ void Intake::SetRollerSpeed(float speed) {
 void Intake::SetIntakePosition(IntakePosition position) {
 	switch (position) {
 	case IntakePositionUp:
-		intakeMovementPneumatic->Set(DoubleSolenoid::kForward);
+		intakeMovementPneumatic->Set(DoubleSolenoid::kReverse);
 		break;
 
 	case IntakePositionDown:
-		intakeMovementPneumatic->Set(DoubleSolenoid::kReverse);
+		intakeMovementPneumatic->Set(DoubleSolenoid::kForward);
 		break;
 	}
 }

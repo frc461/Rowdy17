@@ -36,11 +36,11 @@ void Drive::Execute() {
 	float left = Robot::oi->getLeftJoystick()->GetRawAxis(1);
 	float right = Robot::oi->getRightJoystick()->GetRawAxis(1);
 
-	if (abs(left) < DEADZONE) {
+	if (fabs(left) < DEADZONE) {
 		left = 0.0f;
 	}
 
-	if (abs(right) < DEADZONE) {
+	if (fabs(right) < DEADZONE) {
 		right = 0.0f;
 	}
 

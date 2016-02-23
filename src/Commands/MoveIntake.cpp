@@ -29,7 +29,7 @@ MoveIntake::MoveIntake(double moveSpeed, double rollerSpeed): Command() {
 
 // Called just before this Command runs the first time
 void MoveIntake::Initialize() {
-
+	Robot::intake->SetIntakePosition(Intake::IntakePositionUp);
 }
 
 // Called repeatedly when this Command is scheduled to run
@@ -37,20 +37,20 @@ void MoveIntake::Execute() {
 	std::shared_ptr<Joystick> xboxController = Robot::oi->getXboxController();
 
 	if (xboxController->GetRawButton(XboxButtonA)) {
-		Robot::intake->SetRollerSpeed(ROLLERSPEED);
+		Robot::intake->SetRollerSpeed(-ROLLERSPEED);
 	}
 	else if (xboxController->GetRawButton(XboxButtonB)) {
-		Robot::intake->SetRollerSpeed(-ROLLERSPEED);
+		Robot::intake->SetRollerSpeed(ROLLERSPEED);
 	}
 	else {
 		Robot::intake->SetRollerSpeed(0.0f);
 	}
 
 	if (xboxController->GetRawButton(XboxButtonLeftBumper)) {
-		intakePosition = Intake::IntakePositionUp;
+		intakePosition = Intake::IntakePositionDown;
 	}
 	else if (xboxController->GetRawButton(XboxButtonRightBumper)) {
-		intakePosition = Intake::IntakePositionDown;
+		intakePosition = Intake::IntakePositionUp;
 
 	}
 
