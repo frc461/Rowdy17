@@ -28,12 +28,12 @@ SwitchGears::SwitchGears(): Command() {
 
 // Called just before this Command runs the first time
 void SwitchGears::Initialize() {
-	printf("Switch initialized\n");
+//	printf("Switch initialized\n");
 }
 
 // Called repeatedly when this Command is scheduled to run
 void SwitchGears::Execute() {
-	printf("Switch execute\n");
+//	printf("Switch execute\n");
 	if (Robot::oi->getRightJoystick()->GetRawButton(1) && !buttonPressed) {
 		Robot::transmission->ChangeGears(isFirstGear);
 		isFirstGear = !isFirstGear;

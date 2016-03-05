@@ -37,11 +37,11 @@ void Flasher::InitDefaultCommand() {
 
 void Flasher::Illuminati(){
 	flashlight->Set(Relay::kOn);
-	printf("Flashlight on\n");
+//	printf("Flashlight on\n");
 }
 void Flasher::Deluminati(){
 	flashlight->Set(Relay::kOff);
-	printf("Flashlight off\n");
+//	printf("Flashlight off\n");
 }
 // Put methods for controlling this subsystem
 // here. Call these from Commands.

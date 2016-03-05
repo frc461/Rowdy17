@@ -67,7 +67,7 @@ private:
 	int sLow = 150;
 	int sHigh = 255;
 	int vLow = 50;
-	int vHigh = 100;
+	int vHigh = 130;
 
 	int minRectWidth = 20;
 	int maxRectWidth = 100;
@@ -87,7 +87,7 @@ private:
 
 	Timer *t = new Timer();
 
-	PIDController *pid = new PIDController(0.08,0,0.1, .1,&visionTargetCenter, &driveTrainOut, .02);
+	PIDController *pid = new PIDController(.05,0,0.05, .1,&visionTargetCenter, &driveTrainOut, .02);
 
 	bool shouldUpdateFrame = true;
 	float rectCenter;

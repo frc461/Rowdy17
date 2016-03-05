@@ -24,12 +24,12 @@ Flash::Flash(): Command() {
 
 // Called just before this Command runs the first time
 void Flash::Initialize() {
-	printf("Flash initialized\n");
+//	printf("Flash initialized\n");
 }
 
 // Called repeatedly when this Command is scheduled to run
 void Flash::Execute() {
-	printf("Flash execute\n");
+//	printf("Flash execute\n");
 	if (Robot::oi->getXboxController()->GetRawAxis(XboxAxisLeftTrigger) > 0.5) {
 		Robot::flasher->Illuminati();
 	}
