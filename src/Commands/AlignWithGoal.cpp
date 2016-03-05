@@ -15,6 +15,7 @@
 #define CAMERA_WIDTH 320.0
 #define CAMERA_HEIGHT 160.0
 #define SEEK_ROTATION_SPEED 0.35
+#define FLIP_IMAGE
 
 using namespace cv;
 using namespace std;
@@ -141,9 +142,18 @@ void AlignWithGoal::redrawHSV(int pos, void *) {
 }
 
 void AlignWithGoal::vision() {
+#ifdef VISION_TUNING
+	if (true) {
+#else
 	if (shouldUpdateFrame) {
+
+#endif
 		pid->Disable();
 		video >> frame;
+
+#ifdef FLIP_IMAGE
+			flip(frame, frame, -1);
+#endif
 
 		if (frame.empty()) {
 			printf("Frame empty\n");
@@ -170,14 +180,14 @@ void AlignWithGoal::vision() {
 	else {
 		float currentAngle = RobotMap::gyro->GetAngle();
 		visionTargetCenter.set(currentAngle);
-		float out = pid->Get();
+		float out = -pid->Get();
 
 		if (out > 0) {
-			out += 0.08;
+			out += 0.25;
 		}
 
 		else {
-			out -= 0.08;
+			out -= 0.25;
 		}
 
 		printf("Target angle: %f, current angle: %f, output: %f\n", (rectCenter * 66) - 33, currentAngle, out);
