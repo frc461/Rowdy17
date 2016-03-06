@@ -46,6 +46,17 @@
 #ifndef __OPENCV_CORE_HPP__
 #define __OPENCV_CORE_HPP__
 
+#ifdef REAL
+//THIS IS VERY IMPORTANT
+//WPILib does #define REAL, which conflicts with an enum below
+//Code WILL NOT compile with WPILib without this
+//MUST be paired with the cleanup code at the bottom
+
+#define WPILIB_REAL REAL
+#undef REAL
+
+#endif
+
 #include "opencv2/core/types_c.h"
 #include "opencv2/core/version.hpp"
 
@@ -4859,5 +4870,14 @@ private:
 
 #include "opencv2/core/operations.hpp"
 #include "opencv2/core/mat.hpp"
+
+#ifdef WPILIB_REAL
+//THIS IS ALSO SUPER IMPORTANT
+//This undoes the changes made at the top of the file
+//MUST be paired with the statement at the top
+#define REAL WPILIB_REAL
+#undef WPILIB_REAL
+
+#endif
 
 #endif /*__OPENCV_CORE_HPP__*/
