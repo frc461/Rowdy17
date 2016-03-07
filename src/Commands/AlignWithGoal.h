@@ -79,13 +79,11 @@ private:
 	Mat thresholded;
 	vector<Mat> contours;
 	vector<cv::Rect> filteredContours = vector<cv::Rect>();
-	VideoCapture video;
+	shared_ptr<VideoCapture> video;
 	Image *image;
 
 	SettablePIDSource visionTargetCenter = SettablePIDSource();
 	SettablePIDOut driveTrainOut = SettablePIDOut();;
-
-	Timer *t = new Timer();
 
 	PIDController *pid = new PIDController(.05,0,0.05, .1,&visionTargetCenter, &driveTrainOut, .02);
 
